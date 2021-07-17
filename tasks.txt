@@ -1,5 +1,7 @@
 Kazi -> 1. Basic Architecture: Deploy Express app with MVC on GCP in a container and connect to mongodb atlas
 Kazi -> 2. Login/ Sign up: Use GCP Login/sign up
 Pooya & Arian -> 3. Home Page 
-4. DB schema/Models: Client, Photographer, Booking, Order
-5. Profile: 1 template if possible for client and photographer
+raad -> 4. DB schema/Models: Client, Photographer, Booking, Order, etc
+raad -> 5. APIs for profile page, booking, home page, etc
+6. Profile: 1 template if possible for client and photographer
+7. Booking: 
