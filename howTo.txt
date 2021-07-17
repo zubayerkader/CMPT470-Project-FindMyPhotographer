@@ -1,0 +1,2 @@
+npx express-generator --view=ejs ../CMPT470-Project-FindMyPhotographer/
+
