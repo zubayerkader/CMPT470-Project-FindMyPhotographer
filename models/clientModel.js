@@ -1,5 +1,4 @@
 var mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
 
 const clientSchema = new Schema(
@@ -9,7 +8,7 @@ const clientSchema = new Schema(
         phone: {type: Number, maxlength: 10, minlength:10},
         budget: {type: Number},
     }
-)
+);
 
 module.exports = mongoose.model("Client", clientSchema);
 

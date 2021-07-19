@@ -1,5 +1,4 @@
 var mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
 
 const bookingSchema = new Schema(
@@ -14,6 +13,6 @@ const bookingSchema = new Schema(
         client_offer: {type: Number, required:true },
         argeed_fee: {type: Number},
     }
-)
+);
 
 module.exports = mongoose.model("Booking", bookingSchema);
