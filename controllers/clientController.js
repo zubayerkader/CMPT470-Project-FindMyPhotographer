@@ -3,6 +3,7 @@ const Client = require("../models/clientModel");
 
 
 exports.createClient = (req, res, next)=>{
+    console.log("reached clientcontroller")
     var newClient = new Client(req.body)
     newClient.save(function (error) {
         if (error){
@@ -17,4 +18,15 @@ exports.createClient = (req, res, next)=>{
         
     })
 
+}
+
+exports.getClients = (req, res, next)=>{
+    Client.find({}, function(err, result){
+        if (err){
+            res.json(err);
+        }
+        else{
+            res.json(result);
+        }
+    })
 }

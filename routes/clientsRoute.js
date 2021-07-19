@@ -2,20 +2,16 @@ var express = require('express');
 var router = express.Router();
 const ClientController = require("../controllers/clientController");
 
-/* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   res.send('respond with a resource');
-// });
-
-
-
-
 
 // {
-//     "name": "raad",
-//     "phone": "8888888888",
-//     "budget": 500
+//     "name": "Raad",
+//     "email": "raad@gmail.com",
+//     "phone": "9999999999",
+//     "budget": 50
 // }
+router.post('/', ClientController.createClient);
+router.get('/', ClientController.getClients);
+
 
 // router.post('/', function(req,res,next){
 //     // add user data
@@ -35,45 +31,41 @@ const ClientController = require("../controllers/clientController");
 //     });
 // })
 
-router.post('/', ClientController.createClient)
 
 
-
-router.get('/', function(req,res,next){
-    client.connect(err =>{
-        var database = client.db('cmpt470');
-        var collection = database.collection('clients');
-        // var myCursor = collection.find();
-        // var myDocument = myCursor.hasNext() ? myCursor.next() : null;
-        // if (myDocument) {
-        //     var myName = myDocument.name;
-        //     console.log ((myName));
-        // }
+// router.get('/', function(req,res,next){
+//     client.connect(err =>{
+//         var database = client.db('cmpt470');
+//         var collection = database.collection('clients');
+//         // var myCursor = collection.find();
+//         // var myDocument = myCursor.hasNext() ? myCursor.next() : null;
+//         // if (myDocument) {
+//         //     var myName = myDocument.name;
+//         //     console.log ((myName));
+//         // }
 
         
-        // collection.find().forEach(function(mydoc){
-        //               console.log(mydoc);
-        //               client.close();
-        //           });
+//         // collection.find().forEach(function(mydoc){
+//         //               console.log(mydoc);
+//         //               client.close();
+//         //           });
 
 
-        // const findResult = collection.find({}).toArray().then((data)=> {
-        //     console.log('Found documents =>', data)
-        // })
+//         // const findResult = collection.find({}).toArray().then((data)=> {
+//         //     console.log('Found documents =>', data)
+//         // })
 
-        const findResult = collection.find({}).toArray(function(err, result){
-            if (err){
-                console.log(`ERROR: ${err}`);
-            }
-            else{
-                console.log('Found documents =>', result)
-            }
-        })
-        
-        
-    res.json("results")
-});
-})
+//         const findResult = collection.find({}).toArray(function(err, result){
+//             if (err){
+//                 console.log(`ERROR: ${err}`);
+//             }
+//             else{
+//                 console.log('Found documents =>', result)
+//             }
+//         })        
+//     res.json("results")
+// });
+// })
 
 
 
