@@ -1,3 +1,5 @@
 npx express-generator --view=ejs ../CMPT470-Project-FindMyPhotographer/
 npm install
 npm start
+
+npx create-react-app find-my-photographer
