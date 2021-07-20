@@ -8,6 +8,8 @@ var indexRouter = require('./routes/indexRoute');
 var usersRouter = require('./routes/usersRoute');
 var clinetsRouter = require('./routes/clientsRoute');
 var photographersRouter = require('./routes/photographersRoute');
+const cors = require('cors');
+
 
 var app = express();
 
@@ -25,6 +27,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/clients', clinetsRouter);
 app.use('/photographers', photographersRouter);
+// app.use(cors());
+
 
 
 // catch 404 and forward to error handler
