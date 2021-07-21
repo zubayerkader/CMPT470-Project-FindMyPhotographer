@@ -1,4 +1,4 @@
-const Photographer = require("../models/PhotographerModel");
+const Photographer = require("../models/photographerModel");
 
 exports.createPhotographer = (req, res, next)=>{
     var newPhotographer = new Photographer(req.body);
