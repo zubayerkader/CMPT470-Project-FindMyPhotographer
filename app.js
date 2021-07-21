@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/indexRoute');
 var usersRouter = require('./routes/usersRoute');
-var clinetsRouter = require('./routes/clientsRoute');
+var clientsRouter = require('./routes/clientsRoute');
 var photographersRouter = require('./routes/photographersRoute');
 const cors = require('cors');
 
@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/clients', clinetsRouter);
+app.use('/clients', clientsRouter);
 app.use('/photographers', photographersRouter);
 // app.use(cors());
 
