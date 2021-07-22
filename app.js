@@ -8,11 +8,19 @@ var indexRouter = require('./routes/indexRoute');
 var usersRouter = require('./routes/usersRoute');
 var clientsRouter = require('./routes/clientsRoute');
 var photographersRouter = require('./routes/photographersRoute');
-const cors = require('cors');
+const dotenv = require('dotenv').config();
 
+const cors = require('cors');
+var corsOptions = {
+  origin: process.env.FRONTEND_URL,
+  optionsSuccessStatus: 200, // For legacy browser support
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: "Origin,X-Requested-With,Content-Type,Accept"
+};
 
 var app = express();
 
+app.use(cors(corsOptions));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
