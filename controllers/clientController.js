@@ -6,7 +6,7 @@ exports.createClient = (req, res, next)=>{
     newClient.save(function (error) {
         if (error){
             console.log(error);
-            res.json(error);
+            res.status(500).json(error);
         }
         else{
             console.log("Client ADDED");
@@ -19,7 +19,7 @@ exports.createClient = (req, res, next)=>{
 exports.getClients = (req, res, next)=>{
     Client.find({}, function(err, result){
         if (err){
-            res.json(err);
+            res.status(500).json(err);
         }
         else{
             res.json(result);

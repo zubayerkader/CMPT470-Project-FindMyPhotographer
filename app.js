@@ -8,11 +8,12 @@ var indexRouter = require('./routes/indexRoute');
 var usersRouter = require('./routes/usersRoute');
 var clientsRouter = require('./routes/clientsRoute');
 var photographersRouter = require('./routes/photographersRoute');
+var bookingsRouter = require('./routes/bookingsRoute');
 const dotenv = require('dotenv').config();
 
 const cors = require('cors');
 var corsOptions = {
-  origin: process.env.FRONTEND_URL,
+  origin:  process.env.FRONTEND_URL, //"http://localhost:3000",
   optionsSuccessStatus: 200, // For legacy browser support
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: "Origin,X-Requested-With,Content-Type,Accept"
@@ -35,6 +36,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/clients', clientsRouter);
 app.use('/photographers', photographersRouter);
+app.use('/bookings', bookingsRouter);
 // app.use(cors());
 
 
