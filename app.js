@@ -10,6 +10,7 @@ var clientsRouter = require('./routes/clientsRoute');
 var photographersRouter = require('./routes/photographersRoute');
 var bookingsRouter = require('./routes/bookingsRoute');
 var profilesRouter = require('./routes/profilesRoute');
+var reviewsRouter = require('./routes/reviewsRoute');
 const dotenv = require('dotenv').config();
 
 const cors = require('cors');
@@ -39,6 +40,7 @@ app.use('/clients', clientsRouter);
 app.use('/photographers', photographersRouter);
 app.use('/bookings', bookingsRouter);
 app.use('/profiles', profilesRouter);
+app.use('/reviews', reviewsRouter);
 // app.use(cors());
 
 

@@ -1,5 +1,16 @@
 const Booking = require("../models/bookingModel");
 
+// {
+//     "title": "Demo Job 2!!",
+//     "description": "Demo Job Desc",
+//     "client": "60f5b60e677fb859444c4eae",
+//     "status": "Pending",
+//     "client_offer": 200,
+
+//     "photographer": "60f5b2a6c9554f57cd249d8d",
+//     "photographer_ask" : 400,
+//     "tags": [ "weddings"]
+// }
 exports.createBooking = (req, res, next)=>{
     console.log("reached bookingcontroller");
     var newBooking = new Booking(req.body);

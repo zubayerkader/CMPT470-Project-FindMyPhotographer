@@ -4,6 +4,7 @@ var router = express.Router();
 const ProfileController = require("../controllers/profileController");
 
 
-router.get('/:userType/:id', ProfileController.getProfile); 
+router.get('/photographer/:id', ProfileController.getPhotographerProfile); 
+router.get('/client/:id', ProfileController.getClientProfile); 
 
 module.exports = router;
