@@ -10,6 +10,9 @@ const ClientController = require("../controllers/clientController");
 //   });
 
 router.post('/', ClientController.createClient);
+router.post('/:id', ClientController.updateClientByID);
 router.get('/', ClientController.getClients);
+router.get('/:id', ClientController.getClientByID);
+router.delete('/:id', ClientController.deleteClientByID);
 
 module.exports = router;
