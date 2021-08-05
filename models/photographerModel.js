@@ -8,6 +8,7 @@ const PhotographerSchema = new Schema(
         phone: {type: Number, maxlength: 10, minlength:10},
         fees: {type: Number},
         tags: {type: [String]},
+        type: {type: String, enum: ["photographer"], required:true}
         
     }
 );

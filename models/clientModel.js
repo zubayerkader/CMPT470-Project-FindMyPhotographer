@@ -7,6 +7,7 @@ const clientSchema = new Schema(
         email: {type: String, maxlength: 50, required:true },
         phone: {type: Number, maxlength: 10, minlength:10},
         budget: {type: Number},
+        type: {type: String, enum: ["client"], required:true}
     }
 );
 
