@@ -5,7 +5,7 @@ exports.createPhotographer = (req, res, next)=>{
     newPhotographer.save(function (error) {
         if (error){
             console.log(error);
-            res.json(error);
+            res.status(500).json(error);
         }
         else{
             console.log("Photographer ADDED");
@@ -18,7 +18,7 @@ exports.getPhotographers = (req, res, next)=>{
 
     Photographer.find({}, function(err, result){
         if (err){
-            res.json(err);
+            res.status(500).json(err);
         }
         else{
             res.json(result);
