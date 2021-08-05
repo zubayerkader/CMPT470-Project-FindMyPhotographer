@@ -11,8 +11,18 @@ const PhotographerController = require("../controllers/photographerController");
 //     next();
 //   });
 
-  
-router.post('/', PhotographerController.createPhotographer); 
+// {
+//     "name": "jeff",
+//     "email": "jeff@gmail.com",
+//     "phone": 8888888888,
+//     "fees": 500,
+//     "tags": ["wedding", "cars"],
+//     "type": "photographer"
+// }
+router.post('/', PhotographerController.createPhotographer);
+router.post('/:id', PhotographerController.updatePhotographerByID);
 router.get('/', PhotographerController.getPhotographers); 
+router.get('/:id', PhotographerController.getPhotographerByID);
+router.delete('/:id', PhotographerController.deletePhotographerByID);
 
 module.exports = router;
