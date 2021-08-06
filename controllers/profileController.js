@@ -19,7 +19,7 @@ exports.getClientProfile = (req, res, next)=>{
     Client.findById(id)
     .then((personalInfo)=>{
         returnData.personalInfo = personalInfo;
-        return Booking.find({client: id});
+        return Booking.find({client: id}).populate('photographer');
     })
     .then((bookings)=>{
         returnData.bookingInfo = bookings;
@@ -41,11 +41,11 @@ exports.getPhotographerProfile = (req, res, next)=>{
         bookingInfo: {},
         reviewInfo: {},
     }
-    
+
     Photographer.findById(id)
     .then((personalInfo)=>{
         returnData.personalInfo = personalInfo;
-        return Booking.find({photographer: id});
+        return Booking.find({photographer: id}).populate('client');
     })
     .then((bookings)=>{
         returnData.bookingInfo = bookings;
