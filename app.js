@@ -3,14 +3,20 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
+var fs = require('fs');
+var multer = require('multer');
+ 
+var storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads')
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now())
+    }
+});
+var upload = multer({ storage: storage });
 
-var indexRouter = require('./routes/indexRoute');
-var usersRouter = require('./routes/usersRoute');
-var clientsRouter = require('./routes/clientsRoute');
-var photographersRouter = require('./routes/photographersRoute');
-var bookingsRouter = require('./routes/bookingsRoute');
-var profilesRouter = require('./routes/profilesRoute');
-var reviewsRouter = require('./routes/reviewsRoute');
 const dotenv = require('dotenv').config();
 
 const cors = require('cors');
@@ -27,12 +33,22 @@ app.use(cors(corsOptions));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+var indexRouter = require('./routes/indexRoute');
+var usersRouter = require('./routes/usersRoute');
+var clientsRouter = require('./routes/clientsRoute');
+var photographersRouter = require('./routes/photographersRoute');
+var bookingsRouter = require('./routes/bookingsRoute');
+var profilesRouter = require('./routes/profilesRoute');
+var reviewsRouter = require('./routes/reviewsRoute');
+var imageRouter = require('./routes/imagesRoute');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -41,9 +57,7 @@ app.use('/photographers', photographersRouter);
 app.use('/bookings', bookingsRouter);
 app.use('/profiles', profilesRouter);
 app.use('/reviews', reviewsRouter);
-// app.use(cors());
-
-
+app.use('/images', reviewsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
