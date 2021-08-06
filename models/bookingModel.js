@@ -7,11 +7,12 @@ const bookingSchema = new Schema(
         description: {type: String, maxlength: 300, required:true },
         client: {type: Schema.Types.ObjectId, required: true, ref: "Client"},
         photographer: {type: Schema.Types.ObjectId, ref: "Photographer"},
-        status: {type: String, enum: ["Accepted", "Rejected", "Pending", "Negotiating"], required:true},
+        status: {type: String, enum: ["Accepted", "Rejected", "Pending", "Negotiating", "Cancelled"], required:true},
         tags: {type: [String]},
         photographer_ask: {type: Number },
         client_offer: {type: Number, required:true },
         argeed_fee: {type: Number},
+        counter_offer: {type: Number},
     }
 );
 
