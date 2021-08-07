@@ -57,7 +57,7 @@ app.use('/photographers', photographersRouter);
 app.use('/bookings', bookingsRouter);
 app.use('/profiles', profilesRouter);
 app.use('/reviews', reviewsRouter);
-app.use('/images', reviewsRouter);
+app.use('/images', imageRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
